@@ -1,0 +1,45 @@
+# skill-master configuration
+# Edit this file to customize whitelisted sources and security thresholds.
+
+whitelisted_sources:
+  # Official Anthropic skills
+  - url: github.com/anthropics/skills
+    trust_level: official
+    description: Anthropic's official skills repository
+    search_hint: "Search for SKILL.md files in this GitHub repository"
+
+  # Security-focused
+  - url: github.com/trailofbits/skills
+    trust_level: high
+    description: Trail of Bits security research skills
+    search_hint: "Search for SKILL.md files in this GitHub repository"
+
+  # Curated community list
+  - url: github.com/travisvn/awesome-claude-skills
+    trust_level: curated
+    description: Curated list of community Claude Code skills
+    search_hint: "Search this awesome-list for skill links matching the query"
+
+  # Defense tools
+  - url: github.com/lasso-security/claude-hooks
+    trust_level: high
+    description: Prompt injection defense hooks for Claude Code
+    search_hint: "Search for security hook skills in this repository"
+
+  # Open registry (use with caution)
+  - url: clawhub.ai
+    trust_level: cautious
+    description: ClawHub open skill registry -- valuable skills but ~20% malicious content
+    search_hint: "Search this skill registry website for skills matching the query"
+
+thresholds:
+  pre_screen_reject_score: 2     # Reputation/news scan: skip download if score <= this
+  auto_reject_risk_score: 8      # Local full audit: auto-reject if risk >= this
+  warn_risk_score: 4             # Local full audit: warning if risk >= this
+  min_reputation_score: 3        # Reputation below this = skip candidate
+
+staging:
+  base_dir: /tmp/skill-master    # Base directory for staging (outside project tree)
+
+installation:
+  default_target: personal       # "personal" (~/.claude/skills/) or "project" (.claude/skills/)
