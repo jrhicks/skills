@@ -18,7 +18,7 @@ Build the presentation artifacts.
 
 ## Mode Detection
 
-Find the presentation folder in `.kanban/presentation/*/presentation-name/` and read `card.md`.
+Find the presentation folder in `~/.kanban/presentation/*/presentation-name/` and read `card.md`.
 
 **Start Mode:**
 - Presentation is in `04_specified/` with `done: true`
@@ -37,7 +37,7 @@ Find the presentation folder in `.kanban/presentation/*/presentation-name/` and 
 ### 1. Move Local Folder
 
 ```bash
-mv .kanban/presentation/04_specified/presentation-name/ .kanban/presentation/05_produced/presentation-name/
+mv ~/.kanban/presentation/04_specified/presentation-name/ ~/.kanban/presentation/05_produced/presentation-name/
 ```
 
 ### 2. Update card.md
@@ -71,7 +71,7 @@ Update `card.md`: set `done: true`.
 
 Move to done:
 ```bash
-mv .kanban/presentation/05_produced/presentation-name/ .kanban/presentation/06_done/presentation-name/
+mv ~/.kanban/presentation/05_produced/presentation-name/ ~/.kanban/presentation/06_done/presentation-name/
 python3 .claude/skills/trello/scripts/trello_api.py move_card <card_id> 69914a5e50014d602d1a4e6e
 ```
 

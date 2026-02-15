@@ -12,7 +12,7 @@ Design the talk architecture and media plan.
 
 ## Mode Detection
 
-Find the presentation folder in `.kanban/presentation/*/presentation-name/` and read `card.md`.
+Find the presentation folder in `~/.kanban/presentation/*/presentation-name/` and read `card.md`.
 
 **Start Mode:**
 - Presentation is in `02_shaped/` with `done: true`
@@ -32,7 +32,7 @@ Find the presentation folder in `.kanban/presentation/*/presentation-name/` and 
 ### 1. Move Local Folder
 
 ```bash
-mv .kanban/presentation/02_shaped/presentation-name/ .kanban/presentation/03_outlined/presentation-name/
+mv ~/.kanban/presentation/02_shaped/presentation-name/ ~/.kanban/presentation/03_outlined/presentation-name/
 ```
 
 ### 2. Update card.md
@@ -88,7 +88,7 @@ Update `card.md`: set `done: true`.
 
 Move to next stage:
 ```bash
-mv .kanban/presentation/03_outlined/presentation-name/ .kanban/presentation/04_specified/presentation-name/
+mv ~/.kanban/presentation/03_outlined/presentation-name/ ~/.kanban/presentation/04_specified/presentation-name/
 python3 .claude/skills/trello/scripts/trello_api.py move_card <card_id> 69914a5e8a5ca1785c4c5114
 python3 .claude/skills/trello/scripts/trello_api.py mark_undone <card_id>
 ```

@@ -13,12 +13,12 @@ List all presentations grouped by their current stage.
 Scan these directories for presentation folders (any folder containing `card.md`):
 
 ```
-.kanban/presentation/01_brain-dumped/
-.kanban/presentation/02_shaped/
-.kanban/presentation/03_outlined/
-.kanban/presentation/04_specified/
-.kanban/presentation/05_produced/
-.kanban/presentation/06_done/
+~/.kanban/presentation/01_brain-dumped/
+~/.kanban/presentation/02_shaped/
+~/.kanban/presentation/03_outlined/
+~/.kanban/presentation/04_specified/
+~/.kanban/presentation/05_produced/
+~/.kanban/presentation/06_done/
 ```
 
 ### 2. Read Each card.md

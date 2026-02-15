@@ -13,11 +13,11 @@ List all processes grouped by their current stage.
 Scan these directories for process folders (any folder containing `card.md`):
 
 ```
-.kanban/meta-kanban/01_noticed/
-.kanban/meta-kanban/02_framing/
-.kanban/meta-kanban/03_designing/
-.kanban/meta-kanban/04_implementing/
-.kanban/meta-kanban/05_done/
+~/.kanban/meta-kanban/01_noticed/
+~/.kanban/meta-kanban/02_framing/
+~/.kanban/meta-kanban/03_designing/
+~/.kanban/meta-kanban/04_implementing/
+~/.kanban/meta-kanban/05_done/
 ```
 
 ### 2. Read Each card.md

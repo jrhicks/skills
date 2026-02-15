@@ -38,6 +38,13 @@ allowed-tools:
 ---
 ```
 
+Immediately after the `# /skill-name` title, before any other content, add a bold scope declaration:
+
+- For global skills: `**Global skill.** This skill is installed at ~/.claude/skills/<name>/ and available in every project. Its kanban board lives in the user's home directory at ~/.kanban/<board-name>/ -- not in any project's .kanban/ folder. All sub-skills read and write deliverables there.`
+- For project skills: `**Project skill.** This skill is installed at .claude/skills/<name>/ in this repository. Its kanban board lives at .kanban/<board-name>/ relative to the project root. All sub-skills read and write deliverables there.`
+
+This must be the first thing a reader sees -- `.kanban/` and `~/.kanban/` look nearly identical and the distinction is critical.
+
 Required sections (in order):
 1. **Usage** -- all verbs with argument syntax
 2. **Board Configuration** -- Board name, ID, URL, Lists table, Labels table
@@ -46,8 +53,8 @@ Required sections (in order):
 5. **Labels** -- label descriptions with reference examples if applicable
 6. **Done Flow** -- standard done pattern description
 7. **Dispatch** -- verb-to-file table for workflow stages and utilities
-8. **Location** -- folder structure tree showing where items live
-9. **Element Location** -- how to find an item (glob pattern)
+8. **Location** -- folder structure tree showing where items live. Use the fully resolved path (e.g., `~/.kanban/board-name/` for global, `.kanban/board-name/` for project) -- never a variable or placeholder.
+9. **Element Location** -- how to find an item (glob pattern using the resolved path)
 10. **Card Format** -- frontmatter + body template
 11. **Deliverable Sequence** -- per-stage list of deliverable files
 12. **Cross-references** -- where outputs go (if feeder process). Inline here, not a separate file.

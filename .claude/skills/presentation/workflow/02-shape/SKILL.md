@@ -12,7 +12,7 @@ Define audience, extract core idea, build Star elements.
 
 ## Mode Detection
 
-Find the presentation folder in `.kanban/presentation/*/presentation-name/` and read `card.md`.
+Find the presentation folder in `~/.kanban/presentation/*/presentation-name/` and read `card.md`.
 
 **Start Mode:**
 - Presentation is in `01_brain-dumped/` with `done: true`
@@ -31,7 +31,7 @@ Find the presentation folder in `.kanban/presentation/*/presentation-name/` and 
 ### 1. Move Local Folder
 
 ```bash
-mv .kanban/presentation/01_brain-dumped/presentation-name/ .kanban/presentation/02_shaped/presentation-name/
+mv ~/.kanban/presentation/01_brain-dumped/presentation-name/ ~/.kanban/presentation/02_shaped/presentation-name/
 ```
 
 ### 2. Update card.md
@@ -86,7 +86,7 @@ Update `card.md`: set `done: true`.
 
 Move to next stage:
 ```bash
-mv .kanban/presentation/02_shaped/presentation-name/ .kanban/presentation/03_outlined/presentation-name/
+mv ~/.kanban/presentation/02_shaped/presentation-name/ ~/.kanban/presentation/03_outlined/presentation-name/
 python3 .claude/skills/trello/scripts/trello_api.py move_card <card_id> 69914a5e68ba37a10e8a221e
 python3 .claude/skills/trello/scripts/trello_api.py mark_undone <card_id>
 ```

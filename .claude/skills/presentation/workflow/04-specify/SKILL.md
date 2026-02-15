@@ -12,7 +12,7 @@ Create the slide-by-slide blueprint.
 
 ## Mode Detection
 
-Find the presentation folder in `.kanban/presentation/*/presentation-name/` and read `card.md`.
+Find the presentation folder in `~/.kanban/presentation/*/presentation-name/` and read `card.md`.
 
 **Start Mode:**
 - Presentation is in `03_outlined/` with `done: true`
@@ -32,7 +32,7 @@ Find the presentation folder in `.kanban/presentation/*/presentation-name/` and 
 ### 1. Move Local Folder
 
 ```bash
-mv .kanban/presentation/03_outlined/presentation-name/ .kanban/presentation/04_specified/presentation-name/
+mv ~/.kanban/presentation/03_outlined/presentation-name/ ~/.kanban/presentation/04_specified/presentation-name/
 ```
 
 ### 2. Update card.md
@@ -68,7 +68,7 @@ Update `card.md`: set `done: true`.
 
 Move to next stage:
 ```bash
-mv .kanban/presentation/04_specified/presentation-name/ .kanban/presentation/05_produced/presentation-name/
+mv ~/.kanban/presentation/04_specified/presentation-name/ ~/.kanban/presentation/05_produced/presentation-name/
 python3 .claude/skills/trello/scripts/trello_api.py move_card <card_id> 69914a5e2f14b6a82e828fa8
 python3 .claude/skills/trello/scripts/trello_api.py mark_undone <card_id>
 ```

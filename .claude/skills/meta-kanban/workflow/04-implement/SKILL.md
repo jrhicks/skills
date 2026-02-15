@@ -8,7 +8,7 @@ Build the process: skill files, Trello board, and kanban folders. Uses the 4 des
 
 Search all stage folders for the process:
 ```
-.kanban/meta-kanban/*/process-name/
+~/.kanban/meta-kanban/*/process-name/
 ```
 
 Read `card.md` inside it.
@@ -39,8 +39,8 @@ Three actions:
 
 1. Move process folder from current stage to `04_implementing/`:
    ```bash
-   mv .kanban/meta-kanban/03_designing/process-name/ \
-      .kanban/meta-kanban/04_implementing/process-name/
+   mv ~/.kanban/meta-kanban/03_designing/process-name/ \
+      ~/.kanban/meta-kanban/04_implementing/process-name/
    ```
 
 2. Set `done: false` in card.md
@@ -54,16 +54,28 @@ Three actions:
 ### 3. Create Todos
 
 On first entry, create todos for each implementation step:
-1. Read design spec
-2. Claude Extension Mastery
-3. Create Trello board
-4. Write skill files
-5. Create kanban folders
-6. Progressive discovery audit
+1. Resolve output paths from scope
+2. Read design spec
+3. Claude Extension Mastery
+4. Create Trello board
+5. Write skill files (with hardcoded board path)
+6. Create kanban folders (at resolved output path)
+7. Progressive discovery audit
 
 On resume, check if todos exist. If not, create them and mark completed steps as done based on what's already been built.
 
-### 4. Read Design Spec
+### 4. Resolve Output Paths
+
+Read `scope` from `card.md`. All output paths in steps 6-7 depend on this:
+
+| Scope | Skill output | Kanban output |
+|-------|-------------|---------------|
+| `global` | `~/.claude/skills/<skill-name>/` | `~/.kanban/<board-name>/` |
+| `project` | `.claude/skills/<skill-name>/` | `.kanban/<board-name>/` |
+
+The created skill's own SKILL.md must document its board location using the resolved path (not a variable). This ensures the skill knows where its board is without re-resolving scope.
+
+### 5. Read Design Spec
 
 Read all 4 design files from the process folder:
 - `01-card-format.md`
@@ -73,7 +85,7 @@ Read all 4 design files from the process folder:
 
 These are the spec. Implementation must match.
 
-### 5. Claude Extension Mastery
+### 6. Claude Extension Mastery
 
 **Persona: Facilitator.** This is a collaborative pre-build step. The design spec describes a good *process* -- this step ensures it will also be a good *Claude extension*. Walk through each item with the user, presenting a draft recommendation for them to react to.
 
@@ -141,7 +153,7 @@ For each stage, decide guide depth:
 
 Apply the turtles-all-the-way-down principle: at every level, describe concisely and link deeper. Never inline what can be linked.
 
-### 6. Execute Implementation
+### 7. Execute Implementation
 
 **Persona: Builder.** Execute the spec faithfully. Work autonomously -- the mastery step was the time for questions. Do not redesign or second-guess decisions at this stage.
 
@@ -167,12 +179,12 @@ Read `skill-template-guide/guide.md` in this folder. Using `04-skill-structure.m
 
 #### Step 3: Create Kanban Folders
 
-Read `kanban-setup-guide/guide.md` in this folder. Using `02-board-structure.md` as the spec, create:
-- `.kanban/<board-name>/` root folder
+Read `kanban-setup-guide/guide.md` in this folder. Using `02-board-structure.md` as the spec and the resolved output paths from step 4, create:
+- `<kanban-output>/<board-name>/` root folder (global: `~/.kanban/`, project: `.kanban/`)
 - Stage folders with `.gitkeep` files
 - `discussion.md` at the board root (if cross-topic discussion was designed)
 
-### 7. Progressive Discovery Audit
+### 8. Progressive Discovery Audit
 
 **Persona: Pragmatic Critic.** After all files are built, audit progressive discovery in practice:
 - Is the main SKILL.md concise enough? Does it describe-and-link or does it inline?
@@ -182,14 +194,14 @@ Read `kanban-setup-guide/guide.md` in this folder. Using `02-board-structure.md`
 
 Fix any violations before marking done.
 
-### 8. Complete and Move to Done
+### 9. Complete and Move to Done
 
 When all implementation is complete and the audit passes, four actions:
 
 1. Move process folder to `05_done/`:
    ```bash
-   mv .kanban/meta-kanban/04_implementing/process-name/ \
-      .kanban/meta-kanban/05_done/process-name/
+   mv ~/.kanban/meta-kanban/04_implementing/process-name/ \
+      ~/.kanban/meta-kanban/05_done/process-name/
    ```
 
 2. Set `done: true` in card.md

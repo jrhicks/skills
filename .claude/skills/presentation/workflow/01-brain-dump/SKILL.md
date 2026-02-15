@@ -27,7 +27,7 @@ The user may provide both explicitly or just the name. Infer the label from cont
 
 Search for existing presentation:
 ```
-.kanban/presentation/*/presentation-name/
+~/.kanban/presentation/*/presentation-name/
 ```
 
 If found, report it already exists at its current stage and stop.
@@ -55,7 +55,7 @@ Parse the JSON output to get `id` and `shortUrl`.
 
 ### 4. Create Local Folder + card.md
 
-Create: `.kanban/presentation/01_brain-dumped/presentation-name/card.md`
+Create: `~/.kanban/presentation/01_brain-dumped/presentation-name/card.md`
 
 ```yaml
 ---
@@ -109,7 +109,7 @@ Update `card.md` frontmatter: set `done: true`.
 
 Move to next stage:
 ```bash
-mv .kanban/presentation/01_brain-dumped/presentation-name/ .kanban/presentation/02_shaped/presentation-name/
+mv ~/.kanban/presentation/01_brain-dumped/presentation-name/ ~/.kanban/presentation/02_shaped/presentation-name/
 python3 .claude/skills/trello/scripts/trello_api.py move_card <card_id> 69914a5fbb3e86083ea67469
 python3 .claude/skills/trello/scripts/trello_api.py mark_undone <card_id>
 ```
@@ -122,6 +122,6 @@ Update `card.md`: set `done: false`.
 Created: All-Hands Q1 Update [inform]
 Stage: 01_brain-dumped (Done) --> moved to 02_shaped
 Card: <card_url>
-Local: .kanban/presentation/02_shaped/presentation-name/
+Local: ~/.kanban/presentation/02_shaped/presentation-name/
 Ready for: /presentation shape presentation-name
 ```

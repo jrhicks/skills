@@ -16,7 +16,7 @@ Frame a process by answering fundamental questions about its purpose, flow, and 
 
 Search all stage folders for the process:
 ```
-.kanban/meta-kanban/*/process-name/
+~/.kanban/meta-kanban/*/process-name/
 ```
 
 Read `card.md` inside it.
@@ -47,8 +47,8 @@ Three actions:
 
 1. Move process folder from current stage to `02_framing/`:
    ```bash
-   mv .kanban/meta-kanban/01_noticed/process-name/ \
-      .kanban/meta-kanban/02_framing/process-name/
+   mv ~/.kanban/meta-kanban/01_noticed/process-name/ \
+      ~/.kanban/meta-kanban/02_framing/process-name/
    ```
 
 2. Set `done: false` in card.md

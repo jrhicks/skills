@@ -17,6 +17,8 @@ allowed-tools:
 
 # /presentation
 
+**Global skill.** This skill is installed at `~/.claude/skills/presentation/` and available in every project. Its kanban board lives in the user's home directory at `~/.kanban/presentation/` -- not in any project's `.kanban/` folder. All sub-skills read and write deliverables there.
+
 Create presentations using Patrick Winston's how-to-speak methodology. Presentations progress through a 5-stage pipeline from raw content dump to finished deck.
 
 **Methodology:** This process is grounded in Winston's MIT "How to Speak" lecture -- a practical framework for communication built on Knowledge + Practice + talent (talent smallest). The full reference lives in `guides/how-to-speak/`. Each stage integrates specific Winston techniques: empowerment promise and Star elements in shaping, cycling and verbal punctuation in outlining, slide crime avoidance in specifying, chalkboard sequences in producing.
@@ -131,10 +133,10 @@ Read the SKILL.md for the selected verb and follow its instructions.
 
 ## Presentation Location
 
-Presentations are folders inside stage directories under `.kanban/presentation/`. They move between stage folders as work progresses.
+Presentations are folders inside stage directories under `~/.kanban/presentation/`. They move between stage folders as work progresses.
 
 ```
-.kanban/presentation/
+~/.kanban/presentation/
 ├── discussion.md              # Cross-presentation aha moments
 ├── 01_brain-dumped/
 │   └── all-hands-q1/
@@ -151,7 +153,7 @@ Presentations are folders inside stage directories under `.kanban/presentation/`
 To find a presentation, search all stage folders:
 
 ```
-.kanban/presentation/*/presentation-name/
+~/.kanban/presentation/*/presentation-name/
 ```
 
 If found, read `card.md` inside it. If not found, the presentation does not exist yet (only `brain-dump` can create it).

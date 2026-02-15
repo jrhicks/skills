@@ -18,6 +18,8 @@ allowed-tools:
 
 # /meta-kanban
 
+**Global skill.** This skill is installed at `~/.claude/skills/meta-kanban/` and available in every project. Its kanban board lives in the user's home directory at `~/.kanban/meta-kanban/` -- not in any project's `.kanban/` folder. All sub-skills read and write deliverables there.
+
 Design and implement new kanban-based workflows. Processes progress through a 4-stage pipeline from initial recognition to a fully operational skill + board.
 
 ## Usage
@@ -123,10 +125,10 @@ Read the SKILL.md for the selected verb and follow its instructions.
 
 ## Process Location
 
-Processes are folders inside stage directories under `.kanban/meta-kanban/`. They move between stage folders as work progresses.
+Meta-kanban is a global skill. Its board lives at `~/.kanban/meta-kanban/`.
 
 ```
-.kanban/meta-kanban/
+~/.kanban/meta-kanban/
 ├── discussion.md              # Cross-process aha moments
 ├── 01_noticed/
 │   └── android-inspectpro-review/
@@ -137,12 +139,18 @@ Processes are folders inside stage directories under `.kanban/meta-kanban/`. The
 └── 05_done/
 ```
 
+**Output scope:** Each process's `card.md` has a `scope` field (`global` or `project`) that determines where the implement stage creates the output skill and kanban board:
+- `scope: global` -- output to `~/.claude/skills/` and `~/.kanban/`
+- `scope: project` -- output to `.claude/skills/` and `.kanban/`
+
+The `notice` sub-skill asks the user to choose scope when creating a process.
+
 ## Process Location (Search)
 
 To find a process, search all stage folders:
 
 ```
-.kanban/meta-kanban/*/process-name/
+~/.kanban/meta-kanban/*/process-name/
 ```
 
 If found, read `card.md` inside it. If not found, the process does not exist yet (only `notice` can create it).
@@ -155,6 +163,7 @@ card_id: <from Trello>
 card_url: <from Trello>
 process: Android InspectPro Review
 label: feeder
+scope: project
 done: false
 ---
 

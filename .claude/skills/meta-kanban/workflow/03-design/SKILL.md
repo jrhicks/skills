@@ -14,7 +14,7 @@ Design the board specification through 4 guided steps that build on each other. 
 
 Search all stage folders for the process:
 ```
-.kanban/meta-kanban/*/process-name/
+~/.kanban/meta-kanban/*/process-name/
 ```
 
 Read `card.md` inside it.
@@ -46,8 +46,8 @@ Three actions:
 
 1. Move process folder from current stage to `03_designing/`:
    ```bash
-   mv .kanban/meta-kanban/02_framing/process-name/ \
-      .kanban/meta-kanban/03_designing/process-name/
+   mv ~/.kanban/meta-kanban/02_framing/process-name/ \
+      ~/.kanban/meta-kanban/03_designing/process-name/
    ```
 
 2. Set `done: false` in card.md
